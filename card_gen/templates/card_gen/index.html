@@ -1,0 +1,28 @@
+{% extends "card_gen/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'card_gen/styles.css' %}">
+{% endblock %}
+
+{% block title %}
+    CONFIG
+{% endblock %}
+
+{% block header %}
+    Wpisz dane by wygenerować QR i URL
+{% endblock %}
+{% block content %}
+    <p>Konfig wizytówki</p>
+
+    <form class="container" action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for form_field in config_form %}
+        {% render_field form_field placeholder=form_field.label class+='did-floating-input' %}
+    {% endfor %}
+        <button type="submit" class="button">DALEJ</button>
+    </form>
+{% endblock %}
+
+

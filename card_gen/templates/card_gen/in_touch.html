@@ -1,0 +1,31 @@
+{% extends "card_gen/base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'card_gen/styles.css' %}">
+{% endblock %}
+
+{% block title%}
+LP_krok - 4
+{% endblock %}
+
+{% block header %}
+<img class="img-header" src="{{ config.photo.url }}" alt="{{config.name}}"/><div class="header-text">W kontakcie!</div>
+{% endblock %}
+
+{% block content %}
+<p>Dzięki za przekazanie kontaktu, mój otrzymasz<br>do 5 minut. Do usłyszenia!</p>
+
+<form class="container" action="{% url 'in_touch' user_slug=config.slug %}" method="POST">
+    {% csrf_token %}
+    <img class = "img-meme" src="{% static 'card_gen/memes/' %}{{ meme_name }}" alt="Meme"/>
+    <p>Tak, to ten mem! Jest ok?</p>
+    <form action="" method="GET">
+        <button type="submit" class="button-meme btn-not-ok">NIE OK</button>
+    </form>
+    <form action="{% url 'index' %}" method="GET">
+        <button type="submit" class="button-meme">OK</button>
+    </form>
+</form>
+
+{% endblock %}

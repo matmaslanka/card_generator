@@ -1,0 +1,32 @@
+{% extends "card_gen/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'card_gen/styles.css' %}">
+{% endblock %}
+
+{% block title%}
+LP - krok 1
+{% endblock %}
+
+{% block header %}
+Cześć, tu {{ config.name }}, z {{ config.company }}
+{% endblock %}
+
+{% block content %}
+<p>Proszę, zostaw mi numer kontaktowy,<br>a ja wyślę Ci moją wizytówkę.</p>
+<img class="img-main" src="{{ config.photo.url }}" alt="{{config.name}}"/>
+<form class="container" action="{% url 'presentation' user_slug=config.slug %}" method="POST">
+    {% csrf_token %}
+    {% for form_field in contact_phone_form %}
+        {% render_field form_field placeholder=form_field.label class+='did-floating-input' %}
+    {% endfor %}
+    <button type="submit" class="button">DALEJ</button>
+</form>
+
+<p>Lub jeśli nie chcesz to</p>
+<form action="{% url 'in_touch' user_slug=config.slug %}" method="GET">
+    <button type="submit" class="button btn-send">WYŚLIJ WIZYTÓWKĘ</button>
+</form>
+{% endblock %}

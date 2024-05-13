@@ -1,0 +1,25 @@
+{% extends "card_gen/base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'card_gen/styles.css' %}">
+{% endblock %}
+
+{% block title%}
+WIZYTÓWKA
+{% endblock %}
+
+{% block header %}
+Oto Twoje dane
+{% endblock %}
+
+{% block content %}
+<img class="img-main" src="{{ config.photo.url }}" alt="{{config.name}}"/>
+<p>Imie i nazwisko: {{config.name}}</p>
+<p>Firma: {{config.company}}</p>
+<p>Numer telefonu: {{config.phone_number}}</p>
+<p>Email: {{config.email_address}}</p>
+<p>Vcard address: {{config.vcard_address}}</p>
+<img class="img-qr" src="{{ config.qr_code_image.url }}" alt="{{config.name}}"/>
+
+{% endblock %}

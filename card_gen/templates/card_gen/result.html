@@ -1,0 +1,49 @@
+{% extends "card_gen/base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'card_gen/styles.css' %}">
+{% endblock %}
+
+{% block title%}
+REZULTAT
+{% endblock %}
+
+{% block header %}
+Oto Twoje dane
+{% endblock %}
+
+{% block content %}
+<p>Kod QR - <a href="#" id="downloadQR">pobierz</a></p>
+<img class="img-qr" src="{{ config.qr_code_image.url }}" alt="{{config.name}}"/>
+<p>Adres URL - <a href="#" id="copyLink">kopiuj</a></p>
+<div>
+    <input class="did-floating-input" type="text" id="cardUrl"
+           value="http://127.0.0.1:8000/{{config.slug}}/presentation" />
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obsługa pobierania kodu QR
+        document.getElementById("downloadQR").addEventListener("click", function() {
+            var qrImg = document.querySelector(".img-qr");
+            var link = document.createElement("a");
+            link.href = qrImg.src;
+            link.download = "qrcode.png";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Obsługa kopiowania linku
+        document.getElementById("copyLink").addEventListener("click", function() {
+            var input = document.getElementById("cardUrl");
+            input.select();
+            document.execCommand("copy");
+            alert("Link został skopiowany do schowka!");
+        });
+    });
+</script>
+{% endblock %}

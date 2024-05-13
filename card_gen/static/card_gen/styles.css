@@ -1,0 +1,149 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.did-floating-input {
+    margin-bottom: 12px;
+    margin-left: 53px;
+    width: 75%;
+    font-size: 16px;
+    display: block;
+    height: 50px;
+    padding: 0 20px;
+    background: #f1f1f1;
+    color: #747474;
+    border: 1px #747474 solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button {
+    margin-bottom: 12px;
+    margin-left: 53px;
+    width: 75%;
+    font-size: 16px;
+    display: block;
+    height: 50px;
+    padding: 11px;
+    text-align: center;
+    background: #ddece0;
+    color: #000000;
+    border: 1px #009c1a solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.btn-send {
+    background: #e3f8f8;
+    border: 1px #00789c solid;
+}
+
+.btn-send:hover {
+    background: #00789c;
+    border: 1px #00789c solid;
+}
+
+.btn-send:active {
+    background-color: #e3f8f8;
+    border: 1px #00789c solid;
+}
+
+button:hover {
+    background-color: #58aa66;
+}
+
+button:active {
+    background-color: #ddece0;
+}
+
+.button-meme {
+    position: relative;
+    top: -62px;
+    margin-bottom: 12px;
+    margin-left: 228px;
+    width: 35%;
+    font-size: 16px;
+    height: 50px;
+    padding: 11px;
+    text-align: center;
+    background: #ddece0;
+    color: #000000;
+    border: 1px #009c1a solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.btn-not-ok {
+    top: 0px;
+    margin-bottom: 12px;
+    margin-left: 53px;
+    background: #e3f8f8;
+    border: 1px #00789c solid;
+    box-sizing: border-box;
+}
+
+.btn-not-ok:hover {
+    background: #00789c;
+    border: 1px #00789c solid;
+}
+
+.btn-not-ok:active {
+    background-color: #e3f8f8;
+    border: 1px #00789c solid;
+}
+
+p {
+    padding-left: 53px;
+}
+
+.img-main{    
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+
+.img-header {
+    position: relative;
+    top: -9px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.header-text {
+    position: relative;
+    top: -23px;
+    left: 10px;
+    display: inline-block;
+
+}
+
+.img-qr{    
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+    height: 120px;
+}
+
+.img-meme{    
+    display: block;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 325px;
+    height: 244px;
+}

@@ -1,0 +1,16 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 433px;
+    height: 581px;
+    margin: 50px auto;
+    border: 1px salmon solid;
+}
+
+#head-box {
+    margin-top: 0px;
+    background-color: #D9D9D9;
+    height: 50px;
+    font-weight: bold;
+    padding-left: 53px;
+    padding-top: 25px;
+}

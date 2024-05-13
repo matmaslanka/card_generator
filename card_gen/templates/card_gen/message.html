@@ -1,0 +1,30 @@
+{% extends "card_gen/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'card_gen/styles.css' %}">
+{% endblock %}
+
+{% block title%}
+LP_krok - 3
+{% endblock %}
+
+{% block header %}
+<img class="img-header" src="{{ config.photo.url }}" alt="{{config.name}}"/><div class="header-text">Aaa... i jeszcze jedno</div>
+{% endblock %}
+
+{% block content %}
+<p>Jeśli chciałbyś żebym zadzwonił konkretnego dnia <br> godzinie lub w temacie to napisz! Dzięki!</p>
+
+<form class="container" action="{% url 'message' user_slug=config.slug %}" method="POST">
+    {% csrf_token %}
+    {% for form_field in message_form %}
+        {% render_field form_field placeholder=form_field.label class+='did-floating-input' %}
+    {% endfor %}
+    <button type="submit" class="button">DALEJ</button>
+</form>
+
+<p>Teraz już na pewno będzie mem :)!</p>
+
+{% endblock %}

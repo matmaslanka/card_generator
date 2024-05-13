@@ -1,0 +1,30 @@
+{% extends "card_gen/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'card_gen/styles.css' %}">
+{% endblock %}
+
+{% block title%}
+LP_krok - 2
+{% endblock %}
+
+{% block header %}
+<img class="img-header" src="{{ config.photo.url }}" alt="{{config.name}}"/><div class="header-text">Dziękuję!</div>
+{% endblock %}
+
+{% block content %}
+<p>Za chwilę dostaniesz ode mnie SMS.<br>Możesz podać jeszcze jak mam Cię zapisać?</p>
+
+<form class="container" action="{% url 'thank_you' user_slug=config.slug %}" method="POST">
+    {% csrf_token %}
+    {% for form_field in contact_form %}
+        {% render_field form_field placeholder=form_field.label class+='did-floating-input' %}
+    {% endfor %}
+    <button type="submit" class="button">DALEJ</button>
+</form>
+
+<p>PS. Przejdź dalej to zobaczysz mema!</p>
+
+{% endblock %}
